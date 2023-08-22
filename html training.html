@@ -6,12 +6,21 @@
     <link rel="icon" type="image/x-icon" href="./Image/panda icon.jpg">
 </head>
 <style>
-    .Hlist {
+    #Hlist {
         list-style-type: none;
         margin: 5;
         padding: 5;
         overflow: hidden;
         background-color: #333333;
+    }
+
+    .Nlist {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
     }
 
     li a:hover {
@@ -23,15 +32,11 @@
 background-repeat: no-repeat;
 background-attachment: fixed;  
 background-size: cover;">
-    <ul class="Hlist">
-        <li><a style="float: left; display: block; color: white; text-align: center; padding: 16px; text-decoration: none;"
-                href="html training.html">Panda magazine</a></li>
-        <li><a style="float: left; display: block; color: white; text-align: center; padding: 16px; text-decoration: none;"
-                href="#news">News</a></li>
-        <li><a style="float: left; display: block; color: white; text-align: center; padding: 16px; text-decoration: none;"
-                href="#contact">Contact</a></li>
-        <li><a style="float: left; display: block; color: white; text-align: center; padding: 16px; text-decoration: none;"
-                href="#about">About</a></li>
+    <ul id="Hlist">
+        <li><a class="Nlist" href="html training.html">Panda magazine</a></li>
+        <li><a class="Nlist" href="#news">News</a></li>
+        <li><a class="Nlist" href="#contact">Contact</a></li>
+        <li><a class="Nlist" href="#about">About</a></li>
     </ul>
     <div style="text-align:center;">
         <a
