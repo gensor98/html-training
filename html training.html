@@ -4,6 +4,16 @@
 <head>
     <title>Lovely Panda</title>
     <link rel="icon" type="image/x-icon" href="./Image/panda icon.jpg">
+    
+  <style>
+    .clock-button {
+      background-image: url('https://static.vecteezy.com/system/resources/previews/013/283/010/original/beautiful-landscape-of-mountain-green-forest-or-deep-jungle-with-mountain-heel-and-cloud-sky-beauty-of-nature-and-natural-wallpaper-concept-free-photo.jpg');
+      width: 50px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <style>
     #Hlist {
@@ -32,8 +42,28 @@
 background-repeat: no-repeat;
 background-attachment: fixed;  
 background-size: cover;">
-<button style="background-image: url('https://static.vecteezy.com/system/resources/previews/013/283/010/original/beautiful-landscape-of-mountain-green-forest-or-deep-jungle-with-mountain-heel-and-cloud-sky-beauty-of-nature-and-natural-wallpaper-concept-free-photo.jpg'); border: none;" onclick="document.getElementById('demo').innerHTML = Date()"><img src="./Image/clock.png" width="50" height="50"></button>
-<p id="demo"></p>
+<button id="clockButton" class="clock-button" onclick="toggleClock()">
+    <img src="./Image/clock.png" width="50" height="50">
+  </button>
+  <p id="demo"></p>
+
+  <script>
+    var clockVisible = false;
+
+    function toggleClock() {
+      var clockElement = document.getElementById("demo");
+      var clockButton = document.getElementById("clockButton");
+
+      if (clockVisible) {
+        clockElement.style.display = "none";
+        clockVisible = false;
+      } else {
+        clockElement.innerHTML = Date();
+        clockElement.style.display = "block";
+        clockVisible = true;
+      }
+    }
+  </script>
     <ul id="Hlist">
         <li><a class="Nlist" href="html training.html">Panda magazine</a></li>
         <li><a class="Nlist" href="#news">News</a></li>
