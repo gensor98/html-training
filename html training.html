@@ -6,19 +6,17 @@
   <link rel="icon" type="image/x-icon" href="./Image/panda icon.jpg">
 </head>
 <style>
-   .clock-button {
-      background-image: url('./Image/sky bg.jpg');
-      width: 75px;
-      height: 75px;
-      cursor: pointer;
-    }
-    
+  .clock-button {
+    background: fixed;
+    border: none;
+  }
+
   #Hlist {
     list-style-type: none;
     margin: 1px;
     padding: 1px;
     overflow: hidden;
-    background-color: #333333;
+    background-color: #9c9c9c;
   }
 
   .Nlist {
@@ -33,17 +31,42 @@
   li a:hover {
     background-color: #111111;
   }
+
+  #demo {
+    text-align: center;
+    color:#111111;
+    font-style: italic;
+    animation: fade 0.5s infinite alternate;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0.5;
+    }
+  }
 </style>
 
 <body style="background-color:pink; background-image: url('./Image/sky bg.jpg');
 background-repeat: no-repeat;
 background-attachment: fixed;  
 background-size: cover;">
-  <button id="clockButton" class="clock-button" onclick="toggleClock()">
-    <img src="./Image/clock.png" width="50" height="50">
-  </button>
-  <p id="demo"></p>
-
+  
+  <ul id="Hlist">
+    <li><a class="Nlist" href="html training.html">Panda magazine</a></li>
+    <li><a class="Nlist" href="#news">News</a></li>
+    <li><a class="Nlist" href="#contact">Contact</a></li>
+    <li><a class="Nlist" href="#about">About</a></li>
+    <li style="display: flex; justify-content: right; align-items: right;">
+      <button id="clockButton" class="clock-button">
+        <img src="./Image/clock.png" width="50" height="40">
+      </button>
+      <p id="demo"></p>
+    </li>  
+  </ul>
   <script>
     var clockVisible = false;
 
@@ -55,18 +78,24 @@ background-size: cover;">
         clockElement.style.display = "none";
         clockVisible = false;
       } else {
-        clockElement.innerHTML = Date();
+        updateClock();
         clockElement.style.display = "block";
         clockVisible = true;
       }
     }
+
+    function updateClock() {
+      var clockElement = document.getElementById("demo");
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+
+      clockElement.innerHTML = hours + ":" + minutes + ":" + seconds;
+    }
+
+    setInterval(updateClock, 1000);
   </script>
-  <ul id="Hlist">
-    <li><a class="Nlist" href="html training.html">Panda magazine</a></li>
-    <li><a class="Nlist" href="#news">News</a></li>
-    <li><a class="Nlist" href="#contact">Contact</a></li>
-    <li><a class="Nlist" href="#about">About</a></li>
-  </ul>
   <div style="text-align:center;">
     <a
       href="https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg">
