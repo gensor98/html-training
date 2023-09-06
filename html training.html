@@ -5,6 +5,12 @@
   <title> &#128151; Lovely Panda &#128151;</title>
   <link rel="icon" type="image/x-icon" href="./Image/panda icon.jpg">
 </head>
+<div style="display: flex; justify-content: right; align-items: right; position: fixed; right: 0; bottom: 0;">
+  <button id="clockButton" class="clock-button">
+    <img src="./Image/clock.png" width="50" height="40">
+  </button>
+  <p id="demo"></p>
+</div>
 <style>
   .clock-button {
     background: fixed;
@@ -18,7 +24,10 @@
     overflow: hidden;
     background-color: #9c9c9c;
     position: fixed;
-    width: 99%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 
   .Nlist {
@@ -50,7 +59,68 @@
       opacity: 0.5;
     }
   }
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .popup-content {
+    position: fixed;
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+  }
+
+  .popup-content label,
+  .popup-content input,
+  .popup-content button {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .popup-content button[type="submit"] {
+    margin-top: 10px;
+  }
 </style>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2 style="color:black; font-size:200%; font-family:cursive; text-align: center;"> &#128151;welcome&#128151; </h2>
+    <form>
+      <label for="username">نام کاربری:</label>
+      <input type="text" id="username">
+      <label for="password">رمز عبور:</label>
+      <input type="password" id="password">
+      <button type="submit">log in</button>
+    </form>
+  </div>
+</div>
+
+<div id="popup2" class="popup">
+  <div class="popup-content">
+    <h2 style="color:black; font-size:200%; font-family:cursive; text-align: center;"> &#128151;welcome&#128151; </h2>
+    <form>
+      <label for="username">نام کاربری:</label>
+      <input type="text" id="username">
+      <label for="username">ایمیل:</label>
+      <input type="email" id="username">
+      <label for="password">رمز عبور:</label>
+      <input type="password" id="password">
+      <label for="password">تکرار رمز عبور:</label>
+      <input type="password" id="password">
+      <button type="submit">sign in</button>
+    </form>
+  </div>
+</div>
 
 <body style="background-color:pink; background-image: url('./Image/sky bg.jpg');
 background-repeat: no-repeat;
@@ -62,14 +132,28 @@ background-size: cover;">
     <li><a class="Nlist" href="#news">News</a></li>
     <li><a class="Nlist" href="#contact">Contact</a></li>
     <li><a class="Nlist" href="#about">About</a></li>
-    <li style="display: flex; justify-content: right; align-items: right;">
-      <button id="clockButton" class="clock-button">
-        <img src="./Image/clock.png" width="50" height="40">
-      </button>
-      <p id="demo"></p>
-    </li>
+    <br>
+    <div><button style="float: right;" id="loginButton">log in/out</button>
+      <button style="float: right;" id="loginButton2">sign in</button>
+    </div>
   </ul>
   <script>
+    document.getElementById("loginButton").addEventListener("click", function () {
+      document.getElementById("popup").style.display = "block";
+    });
+    document.getElementById("loginButton2").addEventListener("click", function () {
+      document.getElementById("popup2").style.display = "block";
+    });
+
+    document.querySelector("#popup form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      // Perform login validation or send the data to the server
+      console.log("Username: " + username);
+      console.log("Password: " + password);
+      document.getElementById("popup").style.display = "none";
+    });
     var clockVisible = false;
 
     function toggleClock() {
@@ -98,6 +182,7 @@ background-size: cover;">
 
     setInterval(updateClock, 1000);
   </script>
+  <br><br><br>
   <div style="text-align:center;">
     <a
       href="https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg">
