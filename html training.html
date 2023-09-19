@@ -91,6 +91,18 @@
   .popup-content button[type="submit"] {
     margin-top: 10px;
   }
+
+  /* Center the popups horizontally and vertically */
+  #popup,#popup2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
 </style>
 
 <div id="popup" class="popup">
@@ -140,10 +152,10 @@ background-size: cover;">
   </ul>
   <script>
     document.getElementById("loginButton").addEventListener("click", function () {
-      document.getElementById("popup").style.display = "block";
+      document.getElementById("popup").style.display = "flex";
     });
     document.getElementById("loginButton2").addEventListener("click", function () {
-      document.getElementById("popup2").style.display = "block";
+      document.getElementById("popup2").style.display = "flex";
     });
 
     document.querySelector("#popup form").addEventListener("submit", function (event) {
