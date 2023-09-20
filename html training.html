@@ -93,7 +93,8 @@
   }
 
   /* Center the popups horizontally and vertically */
-  #popup,#popup2 {
+  #popup,
+  #popup2 {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -102,6 +103,21 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+  }
+
+  #scrollToTop {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #111111;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    animation: fade 0.5s infinite alternate;
   }
 </style>
 
@@ -150,7 +166,16 @@ background-size: cover;">
       <button style="float: right;" id="loginButton2">sign in</button>
     </div>
   </ul>
+
+  <div id="scrollToTop">&#9650;</div>
+
   <script>
+    document.getElementById('scrollToTop').addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
     document.getElementById("loginButton").addEventListener("click", function () {
       document.getElementById("popup").style.display = "flex";
     });
