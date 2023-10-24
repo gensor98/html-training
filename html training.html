@@ -119,10 +119,33 @@
     cursor: pointer;
     animation: fade 0.5s infinite alternate;
   }
+
+  .close-icon {
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color:red;
+  /* سایر استایل‌های دلخواه شما */
+}
+
+.close-icon2 {
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color:red;
+  /* سایر استایل‌های دلخواه شما */
+}
 </style>
 
 <div id="popup" class="popup">
   <div class="popup-content">
+    <span class="close-icon">&#10006;</span>
     <h2 style="color:black; font-size:200%; font-family:cursive; text-align: center;"> &#128151;welcome&#128151; </h2>
     <form style="direction: rtl;">
       <label for="username">نام کاربری:</label>
@@ -136,6 +159,7 @@
 
 <div id="popup2" class="popup">
   <div class="popup-content">
+    <span class="close-icon2">&#10006;</span>
     <h2 style="color:black; font-size:200%; font-family:cursive; text-align: center;"> &#128151;welcome&#128151; </h2>
     <form style="direction: rtl;">
       <label for="username">نام کاربری:</label>
@@ -192,6 +216,25 @@ background-size: cover;">
       console.log("Password: " + password);
       document.getElementById("popup").style.display = "none";
     });
+
+    // پیدا کردن آیکون ضبطر با استفاده از کلاس
+    var closeIcon = document.querySelector('.close-icon');
+
+    // اضافه کردن رویداد کلیک به آیکون ضبطر
+    closeIcon.addEventListener('click', function () {
+      var popup = document.getElementById('popup');
+      popup.style.display = 'none'; // مخفی کردن پنجره
+    });
+
+  // پیدا کردن آیکون بستن با استفاده از کلاس
+  var closeIcon2 = document.querySelector('.close-icon2');
+
+  // اضافه کردن رویداد کلیک به آیکون بستن
+  closeIcon2.addEventListener('click', function() {
+    var popup2 = document.getElementById('popup2');
+    popup2.style.display = 'none'; // مخفی کردن پنجره
+  });
+
     var clockVisible = false;
 
     function toggleClock() {
